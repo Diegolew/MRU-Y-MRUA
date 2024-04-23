@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
+//alggggg
 using System;
 
 class Program
@@ -20,7 +20,7 @@ class Program
 
         double resultado = 0;
 
-        if (tipoMovimiento == 1 && tipoCalculo == 2)
+        if ((tipoMovimiento == 1) && (tipoCalculo == 2))
         {
             Console.WriteLine("Ingrese la velocidad (m/s):");
             double velocidad = Convert.ToDouble(Console.ReadLine());
