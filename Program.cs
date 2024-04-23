@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Algo .....
+
 using System;
+
 
 class Program
 {
