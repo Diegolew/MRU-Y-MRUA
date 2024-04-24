@@ -52,6 +52,20 @@ class Program
                     resultado = velocidadInicial * tiempo + 0.5 * aceleracion * Math.Pow(tiempo, 2);
                 }
 
+                Console.WriteLine($"Resultado: La distancia es de {resultado} metros.");
+            }
+            else if (tipoCalculo == 2)
+            {
+                if (tipoMovimiento == 1)
+                {
+                    Console.WriteLine("Ingrese la distancia (m):");
+                    double distancia = PedirNumero();
+
+                    Console.WriteLine("Ingrese el tiempo (s):");
+                    double tiempo = PedirNumero();
+
+                    resultado = distancia / tiempo;
+                }
 
 
             }
