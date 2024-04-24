@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-//alg
+
 using System;
 
 class Program
@@ -14,7 +14,7 @@ class Program
             Console.WriteLine("¿Qué tipo de movimiento desea calcular?");
             Console.WriteLine("1. MRU");
             Console.WriteLine("2. MRUA");
- 
+
             int tipoMovimiento = PedirOpcion(2);
 
             Console.WriteLine("¿Desea calcular distancia, velocidad o tiempo?");
@@ -66,9 +66,66 @@ class Program
 
                     resultado = distancia / tiempo;
                 }
-
-
+                else if (tipoMovimiento == 2)
+                {
+                    Console.WriteLine("No se puede calcular la velocidad en un MRUA sin conocer la distancia.");
+                }
+                
+                Console.WriteLine($"Resultado: La velocidad es de {resultado} m/s.");
             }
+            else if (tipoCalculo == 3)
+            {
+                if (tipoMovimiento == 1)
+                {
+                    Console.WriteLine("No se puede calcular el tiempo en un MRU sin conocer la distancia y la velocidad.");
+                }
+                else if (tipoMovimiento == 2)
+                {
+                    Console.WriteLine("Ingrese la velocidad inicial (m/s):");
+                    double velocidadInicial = PedirNumero();
+
+                    Console.WriteLine("Ingrese la aceleración (m/s^2):");
+                    double aceleracion = PedirNumero();
+
+                    Console.WriteLine("Ingrese la velocidad final (m/s):");
+                    double velocidadFinal = PedirNumero();
+
+                    resultado = (velocidadFinal - velocidadInicial) / aceleracion;
+                }
+
+                Console.WriteLine($"Resultado: El tiempo es de {resultado} segundos.");
+            }
+
+            Console.WriteLine("¿Desea realizar otro cálculo?");
+            Console.WriteLine("1. Sí");
+            Console.WriteLine("2. No");
+
+            int opcion = PedirOpcion(2);
+
+            if (opcion == 2)
+                continuar = false;
         }
+
+        Console.WriteLine("Gracias por usar la Calculadora de Movimiento Rectilíneo.");
+    }
+
+    static int PedirOpcion(int maxOpcion)
+    {
+        int opcion;
+        while (!int.TryParse(Console.ReadLine(), out opcion) || opcion < 1 || opcion > maxOpcion)
+        {
+            Console.WriteLine($"Por favor, ingrese una opción válida (1-{maxOpcion}):");
+        }
+        return opcion;
+    }
+
+    static double PedirNumero()
+    {
+        double numero;
+        while (!double.TryParse(Console.ReadLine(), out numero))
+        {
+            Console.WriteLine("Por favor, ingrese un número válido:");
+        }
+        return numero;
     }
 }
