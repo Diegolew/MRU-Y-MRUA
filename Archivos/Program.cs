@@ -21,6 +21,7 @@ class Program
             Console.WriteLine("1. Distancia");
             Console.WriteLine("2. Velocidad");
             Console.WriteLine("3. Tiempo");
+            Console.WriteLine("4. Area Cuadrado");
 
             int tipoCalculo = PedirOpcion(3);
 
@@ -95,6 +96,26 @@ class Program
 
                 Console.WriteLine($"Resultado: El tiempo es de {resultado} segundos.");
             }
+            else if (tipoCalculo == 2)
+            {
+                if (tipoMovimiento == 1)
+                {
+                    Console.WriteLine("Ingrese la Altura:");
+                    double Altura = PedirNumero();
+
+                    Console.WriteLine("Ingrese la Base:");
+                    double Base = PedirNumero();
+
+                    resultado = Base * Altura;
+                }
+                else if (tipoMovimiento == 2)
+                {
+                    Console.WriteLine("No se puede calcular la velocidad en un MRUA sin conocer la distancia.");
+                }
+                
+                Console.WriteLine($"Resultado: El area es igual a {resultado} m");
+            }
+
 
             Console.WriteLine("¿Desea realizar otro cálculo?");
             Console.WriteLine("1. Sí");
