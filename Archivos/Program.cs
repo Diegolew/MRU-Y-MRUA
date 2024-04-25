@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
 using System;
 
 class Program
@@ -11,89 +10,82 @@ class Program
         while (continuar)
         {
             Console.WriteLine("Bienvenido a la Calculadora de Movimiento Rectilíneo");
-            Console.WriteLine("¿Qué tipo de movimiento desea calcular?");
-            Console.WriteLine("1. MRU");
-            Console.WriteLine("2. MRUA");
-
-            int tipoMovimiento = PedirOpcion(2);
-
-            Console.WriteLine("¿Desea calcular distancia, velocidad o tiempo?");
-            Console.WriteLine("1. Distancia");
-            Console.WriteLine("2. Velocidad");
-            Console.WriteLine("3. Tiempo");
+            Console.WriteLine("¿Qué tipo de cálculo desea realizar?");
+            Console.WriteLine("1. Movimiento Rectilíneo Uniforme (MRU)");
+            Console.WriteLine("2. Movimiento Rectilíneo Uniformemente Acelerado (MRUA)");
+            Console.WriteLine("3. Área de un cuadrado");
 
             int tipoCalculo = PedirOpcion(3);
-
             double resultado = 0;
 
-            if (tipoCalculo == 1)
+            if (tipoCalculo == 1 || tipoCalculo == 2)
             {
-                if (tipoMovimiento == 1)
+                Console.WriteLine("¿Desea calcular distancia, velocidad o tiempo?");
+                Console.WriteLine("1. Distancia");
+                Console.WriteLine("2. Velocidad");
+                Console.WriteLine("3. Tiempo");
+
+                int tipoMovimiento = PedirOpcion(3);
+
+                if (tipoCalculo == 1)
                 {
-                    Console.WriteLine("Ingrese la velocidad (m/s):");
-                    double velocidad = PedirNumero();
+                    if (tipoMovimiento == 1)
+                    {
+                        Console.WriteLine("Ingrese la velocidad (m/s):");
+                        double velocidad = PedirNumero();
 
-                    Console.WriteLine("Ingrese el tiempo (s):");
-                    double tiempo = PedirNumero();
+                        Console.WriteLine("Ingrese el tiempo (s):");
+                        double tiempo = PedirNumero();
 
-                    resultado = velocidad * tiempo;
+                        resultado = velocidad * tiempo;
+                    }
+                    else if (tipoMovimiento == 2)
+                    {
+                        Console.WriteLine("Ingrese la velocidad inicial (m/s):");
+                        double velocidadInicial = PedirNumero();
+
+                        Console.WriteLine("Ingrese la aceleración (m/s^2):");
+                        double aceleracion = PedirNumero();
+
+                        Console.WriteLine("Ingrese el tiempo (s):");
+                        double tiempo = PedirNumero();
+
+                        resultado = velocidadInicial * tiempo + 0.5 * aceleracion * Math.Pow(tiempo, 2);
+                    }
+
+                    Console.WriteLine($"Resultado: La distancia es de {resultado} metros.");
                 }
-                else if (tipoMovimiento == 2)
+                else if (tipoCalculo == 2)
                 {
-                    Console.WriteLine("Ingrese la velocidad inicial (m/s):");
-                    double velocidadInicial = PedirNumero();
+                    if (tipoMovimiento == 1)
+                    {
+                        Console.WriteLine("Ingrese la distancia (m):");
+                        double distancia = PedirNumero();
 
-                    Console.WriteLine("Ingrese la aceleración (m/s^2):");
-                    double aceleracion = PedirNumero();
+                        Console.WriteLine("Ingrese el tiempo (s):");
+                        double tiempo = PedirNumero();
 
-                    Console.WriteLine("Ingrese el tiempo (s):");
-                    double tiempo = PedirNumero();
+                        resultado = distancia / tiempo;
+                    }
+                    else if (tipoMovimiento == 2)
+                    {
+                        Console.WriteLine("No se puede calcular la velocidad en un MRUA sin conocer la distancia.");
+                    }
 
-                    resultado = velocidadInicial * tiempo + 0.5 * aceleracion * Math.Pow(tiempo, 2);
+                    Console.WriteLine($"Resultado: La velocidad es de {resultado} m/s.");
                 }
-
-                Console.WriteLine($"Resultado: La distancia es de {resultado} metros.");
-            }
-            else if (tipoCalculo == 2)
-            {
-                if (tipoMovimiento == 1)
-                {
-                    Console.WriteLine("Ingrese la distancia (m):");
-                    double distancia = PedirNumero();
-
-                    Console.WriteLine("Ingrese el tiempo (s):");
-                    double tiempo = PedirNumero();
-
-                    resultado = distancia / tiempo;
-                }
-                else if (tipoMovimiento == 2)
-                {
-                    Console.WriteLine("No se puede calcular la velocidad en un MRUA sin conocer la distancia.");
-                }
-                
-                Console.WriteLine($"Resultado: La velocidad es de {resultado} m/s.");
             }
             else if (tipoCalculo == 3)
             {
-                if (tipoMovimiento == 1)
-                {
-                    Console.WriteLine("No se puede calcular el tiempo en un MRU sin conocer la distancia y la velocidad.");
-                }
-                else if (tipoMovimiento == 2)
-                {
-                    Console.WriteLine("Ingrese la velocidad inicial (m/s):");
-                    double velocidadInicial = PedirNumero();
+                Console.WriteLine("Ingrese la base del cuadrado:");
+                double baseCuadrado = PedirNumero();
 
-                    Console.WriteLine("Ingrese la aceleración (m/s^2):");
-                    double aceleracion = PedirNumero();
+                Console.WriteLine("Ingrese la altura del cuadrado:");
+                double alturaCuadrado = PedirNumero();
 
-                    Console.WriteLine("Ingrese la velocidad final (m/s):");
-                    double velocidadFinal = PedirNumero();
+                resultado = baseCuadrado * alturaCuadrado;
 
-                    resultado = (velocidadFinal - velocidadInicial) / aceleracion;
-                }
-
-                Console.WriteLine($"Resultado: El tiempo es de {resultado} segundos.");
+                Console.WriteLine($"Resultado: El área del cuadrado es de {resultado} metros cuadrados.");
             }
 
             Console.WriteLine("¿Desea realizar otro cálculo?");
