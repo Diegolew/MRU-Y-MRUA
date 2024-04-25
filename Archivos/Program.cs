@@ -10,12 +10,30 @@ class Program
         while (continuar)
         {
             Console.WriteLine("Bienvenido a la Calculadora de Movimiento Rectilíneo");
+<<<<<<< HEAD
             Console.WriteLine("¿Qué tipo de cálculo desea realizar?");
             Console.WriteLine("1. Movimiento Rectilíneo Uniforme (MRU)");
             Console.WriteLine("2. Movimiento Rectilíneo Uniformemente Acelerado (MRUA)");
             Console.WriteLine("3. Área de un cuadrado");
 
             int tipoCalculo = PedirOpcion(3);
+=======
+            Console.WriteLine("¿Qué tipo de movimiento desea calcular?");
+            Console.WriteLine("1. MRU");
+            Console.WriteLine("2. MRUA");
+            Console.WriteLine("3. Cuadrado");
+
+            int tipoMovimiento = PedirOpcion(3);
+
+            Console.WriteLine("¿Desea calcular distancia, velocidad o tiempo?");
+            Console.WriteLine("1. Distancia");
+            Console.WriteLine("2. Velocidad");
+            Console.WriteLine("3. Tiempo");
+            Console.WriteLine("4. Area");
+
+            int tipoCalculo = PedirOpcion(4);
+
+>>>>>>> 0e4f0d8aed63b467f8058e6cb614bc169d24545d
             double resultado = 0;
 
             if (tipoCalculo == 1 || tipoCalculo == 2)
@@ -85,8 +103,35 @@ class Program
 
                 resultado = baseCuadrado * alturaCuadrado;
 
+<<<<<<< HEAD
                 Console.WriteLine($"Resultado: El área del cuadrado es de {resultado} metros cuadrados.");
             }
+=======
+                    resultado = (velocidadFinal - velocidadInicial) / aceleracion;
+                }
+
+                Console.WriteLine($"Resultado: El tiempo es de {resultado} segundos.");
+            }  else if (tipoCalculo == 4)
+                {
+                    if (tipoMovimiento == 3)
+                        {
+                            Console.WriteLine("Ingrese la Base (m):");
+                            double baseCuadrado = PedirNumero();
+
+                            Console.WriteLine("Ingrese la Altura (m):");
+                            double alturaCuadrado = PedirNumero();
+
+                            resultado = baseCuadrado * alturaCuadrado;
+
+                            Console.WriteLine($"Resultado: El área es de {resultado} metros cuadrados.");
+                        }
+                    else
+                        {
+                          Console.WriteLine("No se puede calcular el área para este tipo de movimiento.");
+                        }
+                }
+
+>>>>>>> 0e4f0d8aed63b467f8058e6cb614bc169d24545d
 
             Console.WriteLine("¿Desea realizar otro cálculo?");
             Console.WriteLine("1. Sí");
