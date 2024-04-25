@@ -14,15 +14,17 @@ class Program
             Console.WriteLine("¿Qué tipo de movimiento desea calcular?");
             Console.WriteLine("1. MRU");
             Console.WriteLine("2. MRUA");
+            Console.WriteLine("3. Cuadrado");
 
-            int tipoMovimiento = PedirOpcion(2);
+            int tipoMovimiento = PedirOpcion(3);
 
             Console.WriteLine("¿Desea calcular distancia, velocidad o tiempo?");
             Console.WriteLine("1. Distancia");
             Console.WriteLine("2. Velocidad");
             Console.WriteLine("3. Tiempo");
+            Console.WriteLine("4. Area");
 
-            int tipoCalculo = PedirOpcion(3);
+            int tipoCalculo = PedirOpcion(4);
 
             double resultado = 0;
 
@@ -94,7 +96,26 @@ class Program
                 }
 
                 Console.WriteLine($"Resultado: El tiempo es de {resultado} segundos.");
-            }
+            }  else if (tipoCalculo == 4)
+                {
+                    if (tipoMovimiento == 3)
+                        {
+                            Console.WriteLine("Ingrese la Base (m):");
+                            double baseCuadrado = PedirNumero();
+
+                            Console.WriteLine("Ingrese la Altura (m):");
+                            double alturaCuadrado = PedirNumero();
+
+                            resultado = baseCuadrado * alturaCuadrado;
+
+                            Console.WriteLine($"Resultado: El área es de {resultado} metros cuadrados.");
+                        }
+                    else
+                        {
+                          Console.WriteLine("No se puede calcular el área para este tipo de movimiento.");
+                        }
+                }
+
 
             Console.WriteLine("¿Desea realizar otro cálculo?");
             Console.WriteLine("1. Sí");
