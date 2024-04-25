@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
 using System;
 
 class Program
@@ -17,13 +16,13 @@ class Program
 
             int tipoMovimiento = PedirOpcion(2);
 
-            Console.WriteLine("¿Desea calcular distancia, velocidad o tiempo?");
+            Console.WriteLine("¿Desea calcular distancia, velocidad, tiempo o área cuadrado?");
             Console.WriteLine("1. Distancia");
             Console.WriteLine("2. Velocidad");
             Console.WriteLine("3. Tiempo");
-            Console.WriteLine("4. Area Cuadrado");
+            Console.WriteLine("4. Área Cuadrado");
 
-            int tipoCalculo = PedirOpcion(3);
+            int tipoCalculo = PedirOpcion(4);
 
             double resultado = 0;
 
@@ -96,7 +95,7 @@ class Program
 
                 Console.WriteLine($"Resultado: El tiempo es de {resultado} segundos.");
             }
-            else if (tipoCalculo == 2)
+            else if (tipoCalculo == 4)
             {
                 if (tipoMovimiento == 1)
                 {
@@ -110,10 +109,10 @@ class Program
                 }
                 else if (tipoMovimiento == 2)
                 {
-                    Console.WriteLine("No se puede calcular la velocidad en un MRUA sin conocer la distancia.");
+                    Console.WriteLine("No se puede calcular el área en un MRUA sin conocer la distancia.");
                 }
                 
-                Console.WriteLine($"Resultado: El area es igual a {resultado} m");
+                Console.WriteLine($"Resultado: El área es igual a {resultado} m^2.");
             }
 
 
